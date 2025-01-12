@@ -1,0 +1,32 @@
+import * as React from "react";
+import { builder, BuilderComponent } from "@builder.io/react";
+
+interface LogoProps {
+  imageUrl?: string;
+  alt?: string;
+}
+
+builder.init("8f27aff3");
+
+export function Logo({ 
+  imageUrl = "https://cdn.builder.io/api/v1/image/assets/TEMP/90d5c3bce18895a3576c929798eb3e58c1b03819cc10699b136ae7462f3e5250?placeholderIfAbsent=true&apiKey=7f447f3e4453447a8e7532de9b4247c3",
+  alt = "Company Logo" 
+}: LogoProps) {
+  return (
+    <div 
+      className="flex overflow-hidden flex-col justify-center items-center px-20 py-96 mx-auto w-full bg-orange-100 max-w-[480px] rounded-[30px] shadow-[10px_10px_40px_rgba(0,0,0,0.3)]" 
+      role="banner"
+      aria-label={alt}
+    >
+      <BuilderComponent model="logo">
+        <img
+          loading="lazy"
+          src={imageUrl}
+          alt={alt}
+          className="object-contain aspect-square w-[72px]"
+          aria-label={alt}
+        />
+      </BuilderComponent>
+    </div>
+  );
+}
